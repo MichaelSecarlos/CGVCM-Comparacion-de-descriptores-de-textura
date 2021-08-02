@@ -1,6 +1,4 @@
 import numpy as np
-from numpy.lib.histograms import histogram
-from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score

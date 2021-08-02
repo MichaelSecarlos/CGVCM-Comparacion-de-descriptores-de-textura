@@ -1,6 +1,4 @@
 import numpy as np
-from numpy.lib.histograms import histogram
-from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score
@@ -38,7 +36,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 C_range = [1,10,100, 1000]
 gamma_range = [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1]
 
-#Definiendo el modelo SVC con Radial Basis Kernel(rbfk)
+#Definiendo el modelo SVC con Radial Basis Kernel(rbf)
 model = GridSearchCV(
     svm.SVC(kernel='rbf'), 
     param_grid=
