@@ -9,7 +9,7 @@ from sklearn import svm
 
 import pandas as pd
 
-def getHistogramCSV(filename):
+def getMVSKCSV(filename):
     data = pd.read_csv(filename, header=None)
     data = np.array(data)
     labels = data[:,1]                  #todos los labels
@@ -26,7 +26,7 @@ def classificate(label):
     return -1
 
 #clases
-classes, data = getHistogramCSV('momentos.csv')
+classes, data = getMVSKCSV('momentos.csv')
 target = [classificate(c) for c in classes]
 
 
@@ -57,10 +57,9 @@ model = GridSearchCV(
 model.fit(X_train, y_train)
 
 #Mostrando los mejores parametros
-print("Los mejores parametros son:\n", model.best_params_ ,"\ncon una precicion de: \n", model.best_score_)
+print("Los mejores parametros son:", model.best_params_ ,"con una precicion de:", model.best_score_)
 
 predictions = model.predict(X_test)
 acc = accuracy_score(y_test , predictions)
 
 print("Mientras que la precision del Test es: ", acc)
-

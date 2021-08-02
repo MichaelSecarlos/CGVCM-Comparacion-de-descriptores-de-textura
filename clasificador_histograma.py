@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score
 from sklearn import svm 
 import pandas as pd
 
-def getHistogramCSV(filename):
+def getHistogramaCSV(filename):
     data = pd.read_csv(filename, header=None)
     data = np.array(data)
     labels = data[:,1]                  #todos los labels
@@ -24,7 +24,7 @@ def classificate(label):
     return -1
 
 #clases
-classes, data = getHistogramCSV('histogram_grid.csv')
+classes, data = getHistogramaCSV('histogram_grid.csv')
 target = [classificate(c) for c in classes]
 
 #Datos
@@ -54,7 +54,7 @@ model = GridSearchCV(
 model.fit(X_train, y_train)
 
 #Mostrando los mejores parametros
-print("Los mejores parametros son:\n", model.best_params_ ,"\ncon una precicion de: \n", model.best_score_)
+print("Los mejores parametros son:", model.best_params_ ,"con una precicion de:", model.best_score_)
 
 predictions = model.predict(X_test)
 acc = accuracy_score(y_test , predictions)
