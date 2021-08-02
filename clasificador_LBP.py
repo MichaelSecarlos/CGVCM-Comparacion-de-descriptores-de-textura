@@ -11,7 +11,7 @@ def getLBPCSV(filename):
     data = pd.read_csv(filename, header=None)
     data = np.array(data)
     labels = data[:,1]                  #todos los labels
-    values = data[:,range(2,258)]       #Tomamos los valores del linear binary pattern
+    values = data[:,range(2,6398)]       #Tomamos los valores del linear binary pattern
     return labels, values
 
 def classificate(label):
