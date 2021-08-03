@@ -1,6 +1,7 @@
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
+from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import accuracy_score
 
 from sklearn import svm 
@@ -27,9 +28,11 @@ def classificate(label):
 classes, data = getLBPCSV('lbp.csv')
 target = [classificate(c) for c in classes]
 
+#Normalizacion de datos
+scaler = MinMaxScaler()
 
 #Datos
-X = data
+X = scaler.fit_transform(data)
 y = target
 
 #Split
